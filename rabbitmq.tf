@@ -24,7 +24,7 @@ resource "null_resource" "ansible" {
   provisioner "remote-exec" {
     connection {
       user = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["SSH_USER"]
-      pass = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["SSH_PASS"]
+      password = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["SSH_PASS"]
       host = aws_spot_instance_request.instance.private_ip
     }
 
