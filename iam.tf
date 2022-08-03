@@ -56,12 +56,12 @@ resource "aws_iam_role" "allow-secret-manager-read-access" {
   }
 }
 
-resource "aws_iam_group_policy_attachment" "attach-policy" {
-  group      = aws_iam_role.allow-secret-manager-read-access.name
+resource "aws_iam_role_policy_attachment" "attach-policy" {
+  role      = aws_iam_role.allow-secret-manager-read-access.name
   policy_arn = aws_iam_policy.allow-secret-manager-read-access.arn
 }
 
 resource "aws_iam_instance_profile" "allow-secret-manager-read-access" {
-  name = "test_profile"
+  name = "Roboshop-RabbitMQ-SecretManager-ReadAccess-${var.ENV}"
   role = aws_iam_role.allow-secret-manager-read-access.name
 }
