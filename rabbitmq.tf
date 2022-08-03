@@ -29,7 +29,7 @@ resource "null_resource" "ansible" {
     }
 
     inline = [
-    "ansible-pull -U http://github.com/dailypractice-all/roboshop-ansible. git roboshop.yml -e HOST=localhost -e ROLE=rabbitmq -e ENV=${var.ENV}",
+    "ansible-pull -U http://github.com/dailypractice-all/roboshop-ansible.git roboshop.yml -e HOST=localhost -e ROLE=rabbitmq -e ENV=${var.ENV}",
     ]
   }
 }
